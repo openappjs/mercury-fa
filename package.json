@@ -1,0 +1,30 @@
+{
+  "name": "mercury-fa",
+  "version": "0.0.0",
+  "description": "Font Awesome icon components for mercury",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/openappjs/mercury-fa.git"
+  },
+  "keywords": [
+    "mercury",
+    "font",
+    "icon",
+    "components",
+    "font-awesome"
+  ],
+  "author": "openappjs",
+  "license": "AGPLv3",
+  "bugs": {
+    "url": "https://github.com/openappjs/mercury-fa/issues"
+  },
+  "homepage": "https://github.com/openappjs/mercury-fa",
+  "dependencies": {
+    "font-awesome": "^4.2.0",
+    "mercury": "^8.0.0"
+  }
+}
