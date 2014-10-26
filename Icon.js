@@ -1,27 +1,5 @@
 var mercury = require('mercury');
 var h = mercury.h;
-var fs = require('fs');
-var parser = require('xml2json');
-var _ = require('lodash');
-
-var fa = fs.readFileSync('./node_modules/font-awesome/fonts/fontawesome-webfont.svg');
-
-var faJson = JSON.parse(parser.toJson(fa.toString())) ;
-
-console.log(faJson)
-
-_.each(faJson.svg.defs.font.glyph, function(glyph) {
-  console.log(glyph)
-})
-
-
-
-
-
-
-
-
-
 
 var screenReaderTextInlineStyle = {
   position: 'absolute',
@@ -34,8 +12,10 @@ function Icon (options) {
   options = options || {};
   var model = options.model || {};
   var style = options.style || {};
+  var config = options.config || {};
 
   var state = mercury.struct({
+    config: mercury.struct(config),
     model: mercury.struct(model),
     style: mercury.struct(style),
     render: mercury.value(Icon.render)
@@ -46,8 +26,8 @@ function Icon (options) {
 
 Icon.render = function (state, events) {
 
-  var className = 'fa fa-' + state.model.name;
-  if (this.props.size) {
+  var className = 'fa fa-' + state.model.iconName;
+  if (state.model.size) {
     className += ' fa-' + state.model.size;
   }
   // if (this.props.rotate) {
@@ -68,7 +48,6 @@ Icon.render = function (state, events) {
       style: screenReaderTextInlineStyle
     }, state.model.screenReaderText )
   ]);
-
-
-
 }
+
+module.exports = Icon;
